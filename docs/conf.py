@@ -21,6 +21,10 @@ project = 'aligned-hierarchies'
 copyright = '2019, Katherine M Kinnaird, Eleanor Donaher, Lizette Carpenter, Jordan Moody, Denise Nava'
 author = 'Katherine M Kinnaird, Eleanor Donaher, Lizette Carpenter, Jordan Moody, Denise Nava'
 
+# The short X.Y version.
+version = '1.0'
+# The full version, including alpha/beta/rc tags.
+release = '1.0'
 
 # -- General configuration ---------------------------------------------------
 
@@ -32,10 +36,10 @@ extensions = ['sphinx.ext.autodoc', 'sphinx.ext.coverage',
 ]
 
 # TEST: Add source suffixes
-source_suffix = {
-    '.rst':'restructuredtext',
-    '.txt':'restructuredtext'
-}
+source_suffix = '.rst'
+
+# The master toctree document.
+master_doc = 'index'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -47,6 +51,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 
 # -- Options for HTML output -------------------------------------------------
+# The name of the Pygments (syntax highlighting) style to use.
+pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
@@ -57,3 +63,6 @@ html_theme = 'default'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# Output file base name for HTML help builder.
+htmlhelp_basename = 'ah'
