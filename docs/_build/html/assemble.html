@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Assemble &#8212; aligned-hierarchies  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -86,8 +86,8 @@ hierarchical representation. Optionally outputs visualizations of the
 hierarchical representations.</p>
 </div></blockquote>
 <dl class="py function">
-<dt class="sig sig-object py" id="assemble.__compare_and_cut">
-<span class="sig-prename descclassname"><span class="pre">assemble.</span></span><span class="sig-name descname"><span class="pre">__compare_and_cut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">red</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">red_len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blue_len</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#assemble.__compare_and_cut" title="Permalink to this definition">¶</a></dt>
+<dt id="assemble.__compare_and_cut">
+<code class="sig-prename descclassname">assemble.</code><code class="sig-name descname">__compare_and_cut</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">red</span></em>, <em class="sig-param"><span class="n">red_len</span></em>, <em class="sig-param"><span class="n">blue</span></em>, <em class="sig-param"><span class="n">blue_len</span></em><span class="sig-paren">)</span><a class="headerlink" href="#assemble.__compare_and_cut" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compares two rows of repeats labeled RED and BLUE, and determines if there
 are any overlaps in time between them. If there is, then we cut the
 repeats in RED and BLUE into up to 3 pieces.</p>
@@ -114,8 +114,8 @@ non-overlapping repeats cut from red and blue</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="assemble.__inds_to_rows">
-<span class="sig-prename descclassname"><span class="pre">assemble.</span></span><span class="sig-name descname"><span class="pre">__inds_to_rows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_mat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row_length</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#assemble.__inds_to_rows" title="Permalink to this definition">¶</a></dt>
+<dt id="assemble.__inds_to_rows">
+<code class="sig-prename descclassname">assemble.</code><code class="sig-name descname">__inds_to_rows</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start_mat</span></em>, <em class="sig-param"><span class="n">row_length</span></em><span class="sig-paren">)</span><a class="headerlink" href="#assemble.__inds_to_rows" title="Permalink to this definition">¶</a></dt>
 <dd><p>Expands a vector containing the starting indices of a piece or two of a
 repeat into a matrix representation recording when these pieces occur in
 the song with 1’s. All remaining entries are marked with 0’s.</p>
@@ -138,8 +138,8 @@ the starting indices and 0’s otherwise</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="assemble.__merge_based_on_length">
-<span class="sig-prename descclassname"><span class="pre">assemble.</span></span><span class="sig-name descname"><span class="pre">__merge_based_on_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full_mat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_bw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_bw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#assemble.__merge_based_on_length" title="Permalink to this definition">¶</a></dt>
+<dt id="assemble.__merge_based_on_length">
+<code class="sig-prename descclassname">assemble.</code><code class="sig-name descname">__merge_based_on_length</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">full_mat</span></em>, <em class="sig-param"><span class="n">full_bw</span></em>, <em class="sig-param"><span class="n">target_bw</span></em><span class="sig-paren">)</span><a class="headerlink" href="#assemble.__merge_based_on_length" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges repeats that are the same length, as set
 by full_bandwidth, and are repeats of the same piece of structure.</p>
 <dl class="field-list simple">
@@ -162,8 +162,8 @@ with rows of full_mat merged if appropriate</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="assemble.__merge_rows">
-<span class="sig-prename descclassname"><span class="pre">assemble.</span></span><span class="sig-name descname"><span class="pre">__merge_rows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_mat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_width</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#assemble.__merge_rows" title="Permalink to this definition">¶</a></dt>
+<dt id="assemble.__merge_rows">
+<code class="sig-prename descclassname">assemble.</code><code class="sig-name descname">__merge_rows</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_mat</span></em>, <em class="sig-param"><span class="n">input_width</span></em><span class="sig-paren">)</span><a class="headerlink" href="#assemble.__merge_rows" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges rows that have at least one common repeat; said common repeat(s)
 must occur at the same time step and be of common length.</p>
 <dl class="field-list simple">
@@ -183,8 +183,8 @@ must occur at the same time step and be of common length.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="assemble.__num_of_parts">
-<span class="sig-prename descclassname"><span class="pre">assemble.</span></span><span class="sig-name descname"><span class="pre">__num_of_parts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_vec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_all_starts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#assemble.__num_of_parts" title="Permalink to this definition">¶</a></dt>
+<dt id="assemble.__num_of_parts">
+<code class="sig-prename descclassname">assemble.</code><code class="sig-name descname">__num_of_parts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_vec</span></em>, <em class="sig-param"><span class="n">input_start</span></em>, <em class="sig-param"><span class="n">input_all_starts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#assemble.__num_of_parts" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function is used to determine the number of blocks of consecutive
 time steps in a list of time steps. A block of consecutive time steps
 represents a distilled section of a repeat. This distilled section will be
@@ -211,8 +211,8 @@ replicated repeats</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="assemble.breakup_overlaps_by_intersect">
-<span class="sig-prename descclassname"><span class="pre">assemble.</span></span><span class="sig-name descname"><span class="pre">breakup_overlaps_by_intersect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_pattern_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bw_vec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresh_bw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#assemble.breakup_overlaps_by_intersect" title="Permalink to this definition">¶</a></dt>
+<dt id="assemble.breakup_overlaps_by_intersect">
+<code class="sig-prename descclassname">assemble.</code><code class="sig-name descname">breakup_overlaps_by_intersect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_pattern_obj</span></em>, <em class="sig-param"><span class="n">bw_vec</span></em>, <em class="sig-param"><span class="n">thresh_bw</span></em><span class="sig-paren">)</span><a class="headerlink" href="#assemble.breakup_overlaps_by_intersect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract repeats in input_pattern_obj that has the starting indices of the
 repeats, into the essential structure componets using bw_vec, that has the
 lengths of each repeat. The essential structure components are the
@@ -241,8 +241,8 @@ pattern_no_overlaps</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="assemble.check_overlaps">
-<span class="sig-prename descclassname"><span class="pre">assemble.</span></span><span class="sig-name descname"><span class="pre">check_overlaps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_mat</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#assemble.check_overlaps" title="Permalink to this definition">¶</a></dt>
+<dt id="assemble.check_overlaps">
+<code class="sig-prename descclassname">assemble.</code><code class="sig-name descname">check_overlaps</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_mat</span></em><span class="sig-paren">)</span><a class="headerlink" href="#assemble.check_overlaps" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compares every pair of groups, determining if there are any repeats in
 any pairs of the groups that overlap.</p>
 <dl class="field-list simple">
@@ -260,8 +260,8 @@ of input matrix overlap and (i,j) = 0 elsewhere</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="assemble.hierarchical_structure">
-<span class="sig-prename descclassname"><span class="pre">assemble.</span></span><span class="sig-name descname"><span class="pre">hierarchical_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix_no</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_no</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#assemble.hierarchical_structure" title="Permalink to this definition">¶</a></dt>
+<dt id="assemble.hierarchical_structure">
+<code class="sig-prename descclassname">assemble.</code><code class="sig-name descname">hierarchical_structure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">matrix_no</span></em>, <em class="sig-param"><span class="n">key_no</span></em>, <em class="sig-param"><span class="n">sn</span></em>, <em class="sig-param"><span class="n">vis</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#assemble.hierarchical_structure" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div><p>Distills the repeats encoded in matrix_no (and key_no) to the essential
 structure components and then builds the hierarchical representation.
@@ -315,7 +315,7 @@ full_matrix_NO</p></li>
 
 
 <h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Modules:</span></p>
+<p><span class="caption-text">Modules:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transform.html">Transform</a></li>
@@ -359,7 +359,7 @@ full_matrix_NO</p></li>
       &copy;2019, Katherine M Kinnaird, Eleanor Donaher, Lizette Carpenter, Jordan Moody, Denise Nava.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
