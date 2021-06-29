@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('../aligned-hierarchies/'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'aligned-hierarchies'
+project = 'mirah'
 copyright = '2019, Katherine M Kinnaird, Eleanor Donaher, Lizette Carpenter, Jordan Moody, Denise Nava'
 author = 'Katherine M Kinnaird, Eleanor Donaher, Lizette Carpenter, Jordan Moody, Denise Nava'
 
