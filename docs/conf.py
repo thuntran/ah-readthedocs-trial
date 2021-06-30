@@ -18,8 +18,8 @@ sys.path.insert(0, os.path.abspath('../aligned-hierarchies/'))
 # -- Project information -----------------------------------------------------
 
 project = 'mirah'
-copyright = '2019, Katherine M Kinnaird, Eleanor Donaher, Lizette Carpenter, Jordan Moody, Denise Nava'
-author = 'Katherine M Kinnaird, Eleanor Donaher, Lizette Carpenter, Jordan Moody, Denise Nava'
+copyright = '2021, Katherine M Kinnaird, Eleanor Donaher, Lizette Carpenter, Jordan Moody, Denise Nava, Sasha Yeutseyeva, Chenhui Jia, Marium Tapal, Betty Wang, Thu Tran, Zoie Zhao'
+author = 'Katherine M Kinnaird, Eleanor Donaher, Lizette Carpenter, Jordan Moody, Denise Nava, Sasha Yeutseyeva, Chenhui Jia, Marium Tapal, Betty Wang, Thu Tran, Zoie Zhao'
 
 
 # -- General configuration ---------------------------------------------------
