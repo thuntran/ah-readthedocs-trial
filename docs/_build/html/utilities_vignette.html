@@ -301,7 +301,7 @@ div.rendered_html tbody tr:hover {
 <li><p><strong>get_yLabels</strong>: Generates the labels for a visualization with <em>width_vec</em> and <em>anno_vec</em>.</p></li>
 <li><p><strong>reformat</strong> : 【Only used for creating test examples】Transforms a binary matrix representation of when repeats occur in a song into a list of repeated structures detailing the length and occurence of each repeat.</p></li>
 </ul>
-<p>These functions are called multiple times throughout the package to reformat the outputs of various functions. Functions from <code class="docutils literal notranslate"><span class="pre">utilities</span></code> are shown in yellow in the example function pipeline below. <img alt="alt text" src="pictures/function_pipeline.png" /></p>
+<p>These functions are called multiple times throughout the package to reformat the outputs of various functions. Functions from <code class="docutils literal notranslate"><span class="pre">utilities</span></code> are shown in yellow in the example function pipeline below. <img alt="alt text" src="_images/function_pipeline.png" /></p>
 <section id="Importing-necessary-modules">
 <h2>Importing necessary modules<a class="headerlink" href="#Importing-necessary-modules" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
@@ -409,7 +409,7 @@ The resulting self-dissimilarity matrix is:
 <h3>find_initial_repeats<a class="headerlink" href="#find_initial_repeats" title="Permalink to this headline">¶</a></h3>
 <p>This function identifies all repeated structures in a sequential data stream which are represented as diagonals in <em>thresh_mat</em> and then stores the pairs of repeats that correspond to each repeated structure in a list. The function finds the diagonals of lengths from the largest to the smallest, searches for non-overlapping shingles first, and cuts the overlapping shingles to up to 3 non-overlapping parts. As each diagonal is found, they are removed to avoid identifying repeated sub-structures.</p>
 <p>The image below illutrates the overlapping parts given two repeats starting with time steps <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> and having length <span class="math notranslate nohighlight">\(k\)</span>. The left and right segments will always exist because <span class="math notranslate nohighlight">\(i \neq j\)</span>, but the middle segment will only exist if <span class="math notranslate nohighlight">\(k &gt; 2(j - i)\)</span>.</p>
-<img alt="alt text" src="pictures/find_initial_repeats.png" />
+<img alt="alt text" src="_images/find_initial_repeats.png" />
 <p>The inputs for the function are: - <strong>thresh_mat</strong> (np.ndarray): A thresholded matrix from which diagonals are extracted. - <strong>bandwidth_vec</strong> (np.ndarray): A vector of lengths of diagonals to be found. - <strong>thresh_bw</strong> (int): The smallest allowed diagonal length.</p>
 <p>The output for the function is: - <strong>all_lst</strong> (np.ndarray): Pairs of repeats that correspond to diagonals in <em>thresh_mat</em>.</p>
 <div class="nbinput docutils container">
