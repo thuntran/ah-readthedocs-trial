@@ -1,0 +1,973 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>The Search Module &#8212; mirah  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">mirah  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">The Search Module</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<section id="The-Search-Module">
+<h1>The Search Module<a class="headerlink" href="#The-Search-Module" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">search</span></code> module of the <code class="docutils literal notranslate"><span class="pre">mirah</span></code> package holds functions used to find and record the diagonals in the thresholded matrix, T. These functions prepare the found diagonals to later be transformed and assembled.</p>
+<ul class="simple">
+<li><p><strong>find_complete_list</strong>: Finds all smaller diagonals (and the associated pairs of repeats) that are contained pair_list, which is composed of larger diagonals found in <code class="docutils literal notranslate"><span class="pre">find_initial_repeats</span></code>.</p></li>
+<li><p><strong>__find_add_srows</strong>: Finds pairs of repeated structures, represented as diagonals of a certain length, k, that start at the same time step as previously found pairs of repeated structures of the same length.</p></li>
+<li><p><strong>__find_add_erows</strong>: Finds pairs of repeated structures, represented as diagonals of a certain length, k, that end at the same time step as previously found pairs of repeated structures of the same length.</p></li>
+<li><p><strong>__find_add_mrows</strong> - Finds pairs of repeated structures, represented as diagonals of a certain length, k, that neither start nor end at the same time steps as previously found pairs of repeated structures of the same length.</p></li>
+<li><p><strong>find_all_repeats</strong>: Finds all the diagonals present in <em>thresh_mat</em>. This function is nearly identical to <code class="docutils literal notranslate"><span class="pre">find_initial_repeats</span></code>, with two crucial differences. First, we do not remove diagonals after we find them. Second, there is no smallest bandwidth size as we are looking for all diagonals.</p></li>
+<li><p><strong>find_complete_list_anno_only</strong>: Finds annotations for all pairs of repeats found in find_all_repeats. This list contains all the pairs of repeated structures with their start/end indices and lengths.</p></li>
+</ul>
+<p>The following functions are imported from the <code class="docutils literal notranslate"><span class="pre">`utilities</span></code> &lt;./utilities_vignette.ipynb&gt;`__ module to reformat outputs and assist with the operations of the <code class="docutils literal notranslate"><span class="pre">`search</span></code> &lt;./search_vignette.ipynb&gt;`__ functions.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">add_annotations</span></code></p></li>
+</ul>
+<p>For more in depth information on the function calls, an example function pipeline is shown below. Functions from the current module are shown in purple.</p>
+<img alt="alt text" src="pictures/function_pipeline.png" />
+<section id="Importing-necessary-modules">
+<h2>Importing necessary modules<a class="headerlink" href="#Importing-necessary-modules" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># numpy is used for mathematical calculations</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Set the path for the import</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="s1">&#39;__file__&#39;</span><span class="p">),</span> <span class="s1">&#39;../mirah&#39;</span><span class="p">))</span>
+
+<span class="c1"># search module</span>
+<span class="kn">from</span> <span class="nn">search</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">search</span> <span class="kn">import</span> <span class="n">__find_add_erows</span><span class="p">,</span> <span class="n">__find_add_mrows</span><span class="p">,</span> <span class="n">__find_add_srows</span>
+
+<span class="c1"># utilities module</span>
+<span class="kn">from</span> <span class="nn">utilities</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+<section id="find_complete_list">
+<h3>find_complete_list<a class="headerlink" href="#find_complete_list" title="Permalink to this headline">¶</a></h3>
+<p>As seen in the flow chart, <code class="docutils literal notranslate"><span class="pre">find_intial_repeats</span></code> is called by <code class="docutils literal notranslate"><span class="pre">example</span></code> right before <code class="docutils literal notranslate"><span class="pre">find_complete_list</span></code>. In <code class="docutils literal notranslate"><span class="pre">find_complete_list</span></code>, smaller pairs of repeats are added to the original list of pairs of repeats made in <code class="docutils literal notranslate"><span class="pre">find_initial_repeats</span></code>. All of the pairs of repeats correspond to each repeated structure in another numpy array called <em>thresh_mat</em>. This array holds all the repeated structures in a sequential data stream and the repeated structures are represented as diagonals.</p>
+<p>The inputs for the function are:</p>
+<ul class="simple">
+<li><p><strong>pair_list</strong> (np.ndarray): Pairs of repeats found in <code class="docutils literal notranslate"><span class="pre">`find_initial_repeats.py</span></code> &lt;./utilities_vignette.ipynb&gt;`__.</p></li>
+<li><p><strong>song_length</strong> (int): The number of audio shingles</p></li>
+</ul>
+<p>The output for the function is:</p>
+<ul class="simple">
+<li><p><strong>lst_out</strong> (np.ndarray): Pairs of repeats with the added smaller repeats</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pair_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">31</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+                      <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
+<span class="n">song_length</span> <span class="o">=</span> <span class="mi">55</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The input array is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">pair_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number of audio shingles is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">song_length</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The input array is:
+ [[ 1 10 46 55 10]
+ [31 40 46 55 10]
+ [10 20 40 50 11]
+ [ 1 15 31 45 15]]
+The number of audio shingles is:
+ 55
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">output</span> <span class="o">=</span> <span class="n">find_complete_list</span><span class="p">(</span><span class="n">pair_list</span><span class="p">,</span> <span class="n">song_length</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The output array is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The output array is:
+ [[11 15 41 45  5  1]
+ [ 1 10 31 40 10  1]
+ [ 1 10 46 55 10  1]
+ [31 40 46 55 10  1]
+ [10 20 40 50 11  1]
+ [ 1 15 31 45 15  1]]
+</pre></div></div>
+</div>
+<p>In this example, there are two more added rows from __find_add_srows. When the array goes into __find_add_srows, the repeats are like this: <img alt="alt text" src="pictures/find_all_repeats1.png" /></p>
+<p>Each row represents a pair of repeats, and each column represents a time step. The time steps with color black are the starting indices for repeats of length k that we use to check lst_no_anno for more repeats of length k.</p>
+<img alt="alt text" src="pictures/find_all_repeats2.png" />
+<p>With the same starting indices and same length, we can find the same repeats in color yellow.</p>
+<p><img alt="image1" src="pictures/find_all_repeats3.png" /> Then we find two more groups of repeats.</p>
+</section>
+<section id="__find_add_srows">
+<h3>__find_add_srows<a class="headerlink" href="#__find_add_srows" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">__find_add_srows</span></code> finds pairs of repeated structures, representated as diagonals of a certain length that start at the same time step as previously found pairs of repeated structures of the same length.</p>
+<p>The inputs for the function are:</p>
+<ul class="simple">
+<li><p><strong>lst_no_anno</strong> (np.ndarray): Pairs of repeats</p></li>
+<li><p><strong>check_inds</strong> (np.ndarray): List of starting indices of repeats</p></li>
+<li><p><strong>k</strong> (int): Length of repeat that we are looking for</p></li>
+</ul>
+<p>The out for the function is: - <strong>add_rows</strong> (np.ndarray): Newly found pairs of repeats of length <em>k</em></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">lst_no_anno</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mi">31</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+                        <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
+<span class="n">check_inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">46</span><span class="p">])</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The input array is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">lst_no_anno</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The indices of repeats to check: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">check_inds</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The length of repeat we are searching for: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The input array is:
+ [[ 1 10 46 55 10]
+ [31 40 46 55 10]
+ [10 20 40 50 11]
+ [ 1 15 31 45 15]]
+The indices of repeats to check:
+ [ 1 31 46]
+The length of repeat we are searching for:
+ 10
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">output</span> <span class="o">=</span> <span class="n">__find_add_srows</span><span class="p">(</span><span class="n">lst_no_anno</span><span class="p">,</span> <span class="n">check_inds</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The output arrary is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The output arrary is:
+ [[ 1 10 31 40 10]
+ [11 15 41 45  5]
+ [ 1 10 31 40 10]
+ [11 15 41 45  5]]
+</pre></div></div>
+</div>
+</section>
+<section id="__find_add_erows">
+<h3>__find_add_erows<a class="headerlink" href="#__find_add_erows" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">__find_add_erows</span></code> finds pairs of repeated structures, representated as diagonals of a certain length that end at the same time step as previously found pairs of repeated structures of the same length.</p>
+<p>The inputs for the functions are:</p>
+<ul class="simple">
+<li><p><strong>lst_no_anno</strong> (np.ndarray): Pairs of repeats</p></li>
+<li><p><strong>check_inds</strong> (np.ndarray): List of ending indices of repeats</p></li>
+<li><p><strong>k</strong> (int): Length of repeats that we are looking for</p></li>
+</ul>
+<p>The output for the function is: - <strong>add_rows</strong> (np.ndarray): Newly found pairs of repeats of length <em>k</em></p>
+<p><strong>Example 1</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">lst_no_anno</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mi">31</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+                        <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
+<span class="n">check_inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">55</span><span class="p">])</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The input array is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">lst_no_anno</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The indices of repeats to check: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">check_inds</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The length of repeat we are searching for: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The input array is:
+ [[ 1 10 46 55 10]
+ [31 40 46 55 10]
+ [10 20 40 50 11]
+ [ 1 15 31 45 15]]
+The indices of repeats to check:
+ [10 40 55]
+The length of repeat we are searching for:
+ 10
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">output</span> <span class="o">=</span> <span class="n">__find_add_erows</span><span class="p">(</span><span class="n">lst_no_anno</span><span class="p">,</span> <span class="n">check_inds</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The output arrary is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The output arrary is:
+ []
+</pre></div></div>
+</div>
+<p><strong>Example 2</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">lst_no_anno</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mi">31</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+                        <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
+<span class="n">check_inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">55</span><span class="p">])</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The input array is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">lst_no_anno</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The indices of repeats to check: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">check_inds</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The length of repeat we are searching for: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The input array is:
+ [[ 1 10 31 40 10]
+ [31 40 46 55 10]
+ [11 20 36 45 10]
+ [ 1 15 31 45 15]]
+The indices of repeats to check:
+ [10 20 40 45 55]
+The length of repeat we are searching for:
+ 10
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">output</span> <span class="o">=</span> <span class="n">__find_add_erows</span><span class="p">(</span><span class="n">lst_no_anno</span><span class="p">,</span> <span class="n">check_inds</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The output arrary is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The output arrary is:
+ [[ 6 15 36 45 10]
+ [ 1  5 31 35  5]]
+</pre></div></div>
+</div>
+</section>
+<section id="__find_add_mrows">
+<h3>__find_add_mrows<a class="headerlink" href="#__find_add_mrows" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">__find_add_mrows</span></code> finds pairs of repeated structures, represented as diagonals of a certain length that neither start nor end at the same time steps as previously found pairs of repeated structures of the same length.</p>
+<p>The inputs for the functions are:</p>
+<ul class="simple">
+<li><p><strong>lst_no_anno</strong> (np.ndarray): Pairs of repeats</p></li>
+<li><p><strong>check_inds</strong> (np.ndarray): List of starting indices of repeats</p></li>
+<li><p><strong>k</strong> (int): Length of repeats that we are looking for</p></li>
+</ul>
+<p>The output for the function is: - <strong>add_rows</strong> (np.ndarray): Newly found pairs of repeats of length <em>k</em></p>
+<p><strong>Example 1</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">lst_no_anno</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mi">31</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+                        <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
+<span class="n">check_inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">46</span><span class="p">])</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The input array is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">lst_no_anno</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The indices of repeats to check: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">check_inds</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The length of repeat we are searching for: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The input array is:
+ [[ 1 10 46 55 10]
+ [31 40 46 55 10]
+ [10 20 40 50 11]
+ [ 1 15 31 45 15]]
+The indices of repeats to check:
+ [ 1 31 46]
+The length of repeat we are searching for:
+ 10
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">output</span> <span class="o">=</span> <span class="n">__find_add_mrows</span><span class="p">(</span><span class="n">lst_no_anno</span><span class="p">,</span> <span class="n">check_inds</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The output arrary is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The output arrary is:
+ []
+</pre></div></div>
+</div>
+<p><strong>Example 2</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">lst_no_anno</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mi">31</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+                        <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+                        <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
+<span class="n">check_inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span><span class="p">])</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The input array is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">lst_no_anno</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The indices of repeats to check: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">check_inds</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The length of repeat we are searching for: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The input array is:
+ [[ 1 10 46 55 10]
+ [31 40 46 55 10]
+ [10 19 40 49 10]
+ [ 2 11 47 56 10]
+ [ 1 15 31 45 15]]
+The indices of repeats to check:
+ [ 1  2 10 31 40 46 47]
+The length of repeat we are searching for:
+ 10
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">output</span> <span class="o">=</span> <span class="n">__find_add_mrows</span><span class="p">(</span><span class="n">lst_no_anno</span><span class="p">,</span> <span class="n">check_inds</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The output arrary is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The output arrary is:
+ [[ 1  1 31 31  1]
+ [ 2 11 32 41 10]
+ [12 15 42 45  4]]
+</pre></div></div>
+</div>
+</section>
+<section id="find_all_repeats">
+<h3>find_all_repeats<a class="headerlink" href="#find_all_repeats" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">find_all_repeats</span></code> Finds all the diagonals present in <em>thresh_mat</em>. This function is nearly identical to <code class="docutils literal notranslate"><span class="pre">find_initial_repeats</span></code>, with two crucial differences. First, we do not remove diagonals after we find them. Second, there is no smallest bandwidth size as we are looking for all diagonals.</p>
+<p>The inputs for the function are:</p>
+<ul class="simple">
+<li><p><strong>thresh_mat</strong> (np.ndarray): Thresholded matrix that we extract diagonals from</p></li>
+<li><p><strong>band_width_vec</strong> (np.ndarray): Vector of lengths of diagonals to be found</p></li>
+</ul>
+<p>The output for the function is:</p>
+<ul class="simple">
+<li><p><strong>all_lst</strong> (np.ndarray): Pairs of repeats that correspond to diagonals in <em>thresh_mat</em></p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">thresh_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">bandwidth_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The threshold matrix is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">thresh_mat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The lengths of the diagonals to be found are: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">bandwidth_vec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The threshold matrix is:
+ [[1 0 1 0 0]
+ [0 1 0 1 0]
+ [1 0 1 0 1]
+ [0 1 0 1 0]
+ [0 0 1 0 1]]
+The lengths of the diagonals to be found are:
+ [1 2 3 4 5]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">output</span> <span class="o">=</span> <span class="n">find_all_repeats</span><span class="p">(</span><span class="n">thresh_mat</span><span class="p">,</span> <span class="n">bandwidth_vec</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The output array is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">output</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The output array is:
+ [[1 1 3 3 1]
+ [2 2 4 4 1]
+ [3 3 5 5 1]
+ [1 2 3 4 2]
+ [2 3 4 5 2]
+ [1 2 3 4 2]
+ [2 3 4 5 2]]
+</pre></div></div>
+</div>
+</section>
+<section id="find_complete_list_anno_only">
+<h3>find_complete_list_anno_only<a class="headerlink" href="#find_complete_list_anno_only" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">find_complete_list_anno_only</span></code> finds annotations for all pairs of repeats found in <code class="docutils literal notranslate"><span class="pre">find_all_repeats.py</span></code>. This list contains all the pairs of repeated structures with their start/end indices and lengths.</p>
+<p>The inputs for the function are:</p>
+<ul class="simple">
+<li><p><strong>pair_list</strong> (np.ndarray): Pairs of repeats</p></li>
+<li><p><strong>song_length</strong> (int): Number of audio shingles</p></li>
+</ul>
+<p>The output for the function is:</p>
+<ul class="simple">
+<li><p><strong>out_lst</strong> (np.ndarray): Pairs of repeats with added smaller repeats and annotations</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pair_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">8</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">4</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">7</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+                      <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">song_length</span> <span class="o">=</span> <span class="mi">19</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The pairs of repeats are: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">pair_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number of audio shingles in the song are:&quot;</span><span class="p">,</span> <span class="n">song_length</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The pairs of repeats are:
+ [[ 3  3  5  5  1]
+ [ 2  2  8  8  1]
+ [ 3  3  9  9  1]
+ [ 2  2 15 15  1]
+ [ 8  8 15 15  1]
+ [ 4  4 17 17  1]
+ [ 2  3  8  9  2]
+ [ 3  4  9 10  2]
+ [ 2  3 15 16  2]
+ [ 8  9 15 16  2]
+ [ 3  4 16 17  2]
+ [ 2  4  8 10  3]
+ [ 3  5  9 11  3]
+ [ 7  9 14 16  3]
+ [ 2  4 15 17  3]
+ [ 3  5 16 18  3]
+ [ 9 11 16 18  3]
+ [ 7 10 14 17  4]
+ [ 7 11 14 18  5]
+ [ 8 12 15 19  5]
+ [ 7 12 14 19  6]]
+The number of audio shingles in the song are: 19
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">output</span> <span class="o">=</span> <span class="n">find_complete_list_anno_only</span><span class="p">(</span><span class="n">pair_list</span><span class="p">,</span> <span class="n">song_length</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The output array is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The output array is:
+ [[ 2  2  8  8  1  1]
+ [ 2  2 15 15  1  1]
+ [ 8  8 15 15  1  1]
+ [ 3  3  5  5  1  2]
+ [ 3  3  9  9  1  2]
+ [ 4  4 17 17  1  3]
+ [ 2  3  8  9  2  1]
+ [ 2  3 15 16  2  1]
+ [ 8  9 15 16  2  1]
+ [ 3  4  9 10  2  2]
+ [ 3  4 16 17  2  2]
+ [ 2  4  8 10  3  1]
+ [ 2  4 15 17  3  1]
+ [ 3  5  9 11  3  2]
+ [ 3  5 16 18  3  2]
+ [ 9 11 16 18  3  2]
+ [ 7  9 14 16  3  3]
+ [ 7 10 14 17  4  1]
+ [ 7 11 14 18  5  1]
+ [ 8 12 15 19  5  2]
+ [ 7 12 14 19  6  1]]
+</pre></div></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The Search Module</a><ul>
+<li><a class="reference internal" href="#Importing-necessary-modules">Importing necessary modules</a><ul>
+<li><a class="reference internal" href="#find_complete_list">find_complete_list</a></li>
+<li><a class="reference internal" href="#__find_add_srows">__find_add_srows</a></li>
+<li><a class="reference internal" href="#__find_add_erows">__find_add_erows</a></li>
+<li><a class="reference internal" href="#__find_add_mrows">__find_add_mrows</a></li>
+<li><a class="reference internal" href="#find_all_repeats">find_all_repeats</a></li>
+<li><a class="reference internal" href="#find_complete_list_anno_only">find_complete_list_anno_only</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/search_vignette.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">mirah  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">The Search Module</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Katherine M Kinnaird, Eleanor Donaher, Lizette Carpenter, Jordan Moody, Denise Nava, Sasha Yeutseyeva, Chenhui Jia, Marium Tapal, Betty Wang, Thu Tran, Zoie Zhao.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
+    </div>
+  </body>
+</html>

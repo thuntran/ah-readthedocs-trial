@@ -28,8 +28,7 @@ author = 'Katherine M Kinnaird, Eleanor Donaher, Lizette Carpenter, Jordan Moody
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.coverage',
-              'sphinx.ext.napoleon'
-]
+              'sphinx.ext.napoleon', 'nbsphinx']
 
 # TEST: Add source suffixes
 source_suffix = {

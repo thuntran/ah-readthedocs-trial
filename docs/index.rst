@@ -15,7 +15,7 @@ Welcome to mirah's documentation!
    transform
    assemble
    search_doc
-   example
+   AH_examples.ipynb
 
    
 
