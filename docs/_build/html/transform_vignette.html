@@ -302,21 +302,19 @@ div.rendered_html tbody tr:hover {
 <section id="Importing-necessary-modules">
 <h2>Importing necessary modules<a class="headerlink" href="#Importing-necessary-modules" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># numpy is used for mathematical calculations</span>
+<span></span><span class="c1"># NumPy is used for mathematical calculations</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="c1"># Set the path for the import</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="s1">&#39;__file__&#39;</span><span class="p">),</span> <span class="s1">&#39;../mirah&#39;</span><span class="p">))</span>
-
 <span class="c1"># Import transform</span>
-<span class="kn">from</span> <span class="nn">transform</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">transform</span> <span class="kn">import</span> <span class="n">__create_anno_remove_overlaps</span><span class="p">,</span> <span class="n">__separate_anno_markers</span>
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="s1">&#39;__file__&#39;</span><span class="p">))</span>
+<span class="n">relative_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_dir</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">relative_path</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">mirah</span>
+<span class="kn">from</span> <span class="nn">mirah.transform</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
 </div>
@@ -327,7 +325,7 @@ div.rendered_html tbody tr:hover {
 <p>The outputs for the function are: - <strong>lst_no_overlaps</strong> (np.ndarray): A list of pairs of non-overlapping repeats with annotations marked. All the repeats of a given length and with a specific annotation marker do not overlap in time. - <strong>matrix_no_overlaps</strong> (np.ndarray): A matrix representation of <em>lst_no_overlaps</em> where each row corresponds to a group of repeats - <strong>key_no_overlaps</strong> (np.ndarray): A vector containing the lengths of the repeats in each row of <em>matrix_no_overlaps</em> -
 <strong>annotations_no_overlaps</strong> (np.ndarray): A vector containing the annotations of the repeats in each row of <em>matrix_no_overlaps</em> - <strong>all_overlap_lst</strong> (np.ndarray): A list of pairs of repeats with annotations marked removed from <em>input_mat</em>. For each pair of repeat length and specific annotation marker, there exists at least one pair of repeats that overlap in time.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -354,7 +352,7 @@ The number of shingles is: 20
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -398,7 +396,7 @@ The array of overlapping repeats is:
 <p>The inputs for the function are: - <strong>k_mat</strong> (np.ndarray): A list of pairs of repeats of length 1 with annotations marked. The first two columns refer to the first repeat, the second two columns refer to the second repeat, the fifth column denotes repeat length, and the last column contains the annotation. - <strong>song_length</strong> (int): The number of audio shingles in the song - <strong>band_width</strong> (int): The length of the repeats in <em>k_mat</em></p>
 <p>The outputs for the function are: - <strong>pattern_row</strong> (np.ndarray): A 1-D array marking start indices of non-overlapping repeats with annotation markers and 0’s otherwise - <strong>k_lst_out</strong> (np.ndarray): A list of pairs of repeats of length <em>band_width</em> that contains only non-overlapping repeats, with annotations marked - <strong>overlap_lst</strong> (np.ndarray): A list of pairs of repeats of length <em>band_width</em> that contains only overlapping repeats, with annotations marked</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -430,7 +428,7 @@ The length of the repeats is: 5
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -471,7 +469,7 @@ array is a visual record of where all of the repeats in a song start and end.</p
 non-overlapping repeats</p>
 <p>The outputs for the function are: - <strong>pattern_mat</strong> (np.ndarray): A matrix representation of where each row contains a marked group of repeats - <strong>pattern_key</strong> (np.ndarray): The lengths of the repeats in each row of <em>pattern_mat</em> - <strong>anno_id_lst</strong> (np.ndarray): The annotations of the repeats in each row of <em>pattern_mat</em></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -508,7 +506,7 @@ The pattern of the repeats is:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
