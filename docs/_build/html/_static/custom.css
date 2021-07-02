@@ -1,16 +1,8 @@
-div.wy-side-nav-search .version {
-    color: #404040;
-    font-weight: bold;
-}
-
-nav.wy-nav-top {
-    background: #AA2396;
-}
-
-div.wy-nav-content {
-    max-width: 1000px;
-}
-
-span.caption-text {
-    color: #2b88be;
+/* Sidebar header */
+.wy-side-nav-search, .wy-nav-top {
+    background: #c737c0;
+  }
+  /* Sidebar */
+.wy-nav-side {
+    background: #7c767c;
 }
