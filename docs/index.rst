@@ -7,17 +7,30 @@ Welcome to mirah's documentation!
 ===============================================
 
 
+
 .. toctree::
    :maxdepth: 1
-   :caption: Modules:
+   :caption: Getting Started
+
+   about
+   installation
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Modules
 
    utilities
    transform
    assemble
    search_doc
-   AH_examples.ipynb
 
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Implementation
    
+   AH_examples.ipynb
 
 
 

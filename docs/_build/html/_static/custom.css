@@ -1,11 +1,16 @@
-/* This file intentionally left blank. */
-
-/* Sidebar header */
-.wy-side-nav-search .wy-nav-top {
-    background-color: #704db1;
+div.wy-side-nav-search .version {
+    color: #404040;
+    font-weight: bold;
 }
 
-/* Sidebar */
-.wy-nav-side {
-    background-color: #413f42;
-  }
+nav.wy-nav-top {
+    background: #AA2396;
+}
+
+div.wy-nav-content {
+    max-width: 1000px;
+}
+
+span.caption-text {
+    color: #2b88be;
+}
