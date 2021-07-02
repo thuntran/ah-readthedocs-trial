@@ -1,1 +1,11 @@
 /* This file intentionally left blank. */
+
+/* Sidebar header */
+.wy-side-nav-search, .wy-nav-top {
+    background: #5484a0;
+}
+
+/* Sidebar */
+.wy-nav-side {
+    background: #7c7676;
+  }
