@@ -19,6 +19,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
+    <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
   </head><body>
@@ -309,7 +310,7 @@ div.rendered_html tbody tr:hover {
 <section id="Importing-necessary-modules">
 <h2>Importing necessary modules<a class="headerlink" href="#Importing-necessary-modules" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -317,12 +318,12 @@ div.rendered_html tbody tr:hover {
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Import search</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
 <span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="s1">&#39;__file__&#39;</span><span class="p">))</span>
 <span class="n">relative_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_dir</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">)</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">relative_path</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">mirah</span>
 <span class="kn">from</span> <span class="nn">mirah.search</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">mirah.search</span> <span class="kn">import</span> <span class="n">__find_add_srows</span><span class="p">,</span> <span class="n">__find_add_erows</span>
+<span class="kn">from</span> <span class="nn">mirah.search</span> <span class="kn">import</span> <span class="n">__find_add_srows</span><span class="p">,</span> <span class="n">__find_add_erows</span><span class="p">,</span> <span class="n">__find_add_mrows</span>
 </pre></div>
 </div>
 </div>
@@ -339,7 +340,7 @@ div.rendered_html tbody tr:hover {
 <li><p><strong>lst_out</strong> (np.ndarray): Pairs of repeats with the added smaller repeats</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -369,7 +370,7 @@ The number of audio shingles is:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -393,11 +394,11 @@ The output array is:
  [ 1 15 31 45 15  1]]
 </pre></div></div>
 </div>
-<p>In this example, there are two more added rows from __find_add_srows. When the array goes into __find_add_srows, the repeats are like this: <img alt="alt text" src="pictures/find_all_repeats1.png" /></p>
+<p>In this example, there are two more added rows from __find_add_srows. When the array goes into __find_add_srows, the repeats are like this: <img alt="alt text" src="_images/find_all_repeats1.png" /></p>
 <p>Each row represents a pair of repeats, and each column represents a time step. The time steps with color black are the starting indices for repeats of length k that we use to check lst_no_anno for more repeats of length k.</p>
-<img alt="alt text" src="pictures/find_all_repeats2.png" />
+<img alt="alt text" src="_images/find_all_repeats2.png" />
 <p>With the same starting indices and same length, we can find the same repeats in color yellow.</p>
-<p><img alt="image1" src="pictures/find_all_repeats3.png" /> Then we find two more groups of repeats.</p>
+<p><img alt="image1" src="_images/find_all_repeats3.png" /> Then we find two more groups of repeats.</p>
 </section>
 <section id="__find_add_srows">
 <h3>__find_add_srows<a class="headerlink" href="#__find_add_srows" title="Permalink to this headline">¶</a></h3>
@@ -410,7 +411,7 @@ The output array is:
 </ul>
 <p>The out for the function is: - <strong>add_rows</strong> (np.ndarray): Newly found pairs of repeats of length <em>k</em></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -444,7 +445,7 @@ The length of repeat we are searching for:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -479,7 +480,7 @@ The output array is:
 <p>The output for the function is: - <strong>add_rows</strong> (np.ndarray): Newly found pairs of repeats of length <em>k</em></p>
 <p><strong>Example 1</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -513,7 +514,7 @@ The length of repeat we are searching for:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -534,7 +535,7 @@ The output array is:
 </div>
 <p><strong>Example 2</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -568,7 +569,7 @@ The length of repeat we are searching for:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -601,7 +602,7 @@ The output array is:
 <p>The output for the function is: - <strong>add_rows</strong> (np.ndarray): Newly found pairs of repeats of length <em>k</em></p>
 <p><strong>Example 1</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -635,7 +636,7 @@ The length of repeat we are searching for:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -656,7 +657,7 @@ The output array is:
 </div>
 <p><strong>Example 2</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -692,7 +693,7 @@ The length of repeat we are searching for:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -727,7 +728,7 @@ The output array is:
 <li><p><strong>all_lst</strong> (np.ndarray): Pairs of repeats that correspond to diagonals in <em>thresh_mat</em></p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -760,7 +761,7 @@ The lengths of the diagonals to be found are:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -799,7 +800,7 @@ The output array is:
 <li><p><strong>out_lst</strong> (np.ndarray): Pairs of repeats with added smaller repeats and annotations</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -862,7 +863,7 @@ The number of audio shingles in the song are: 19
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>

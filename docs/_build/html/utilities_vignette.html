@@ -307,7 +307,7 @@ div.rendered_html tbody tr:hover {
 <section id="Importing-necessary-modules">
 <h2>Importing necessary modules<a class="headerlink" href="#Importing-necessary-modules" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -318,10 +318,10 @@ div.rendered_html tbody tr:hover {
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1"># Import utilities</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
 <span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="s1">&#39;__file__&#39;</span><span class="p">))</span>
 <span class="n">relative_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_dir</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">)</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">relative_path</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">mirah</span>
 <span class="kn">from</span> <span class="nn">mirah.utilities</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">mirah.utilities</span> <span class="kn">import</span> <span class="n">__find_song_pattern</span>
 </pre></div>
@@ -333,7 +333,7 @@ div.rendered_html tbody tr:hover {
 <p>The inputs for the function are: - <strong>fv_mat</strong> (np.ndarray): A matrix of feature vectors where each column is a timestep and each row includes feature information i.e. an array of 144 columns/beats and 12 rows corresponding to chroma values. - <strong>num_fv_per_shingle</strong> (int): The number of feature vectors per audio shingle.</p>
 <p>The output for the function is: - <strong>self_dissim_mat</strong> (np.ndarray): A self dissimilarity matrix with paired cosine distances between shingles.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -365,7 +365,7 @@ The number of feature vectors per audio shingles is: 3
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -390,7 +390,7 @@ The resulting self-dissimilarity matrix is:
 </div>
 <p>The resulting self-dissimilarity can be shown as a picture in which the color represents the similarity between two shingles. The darker the color of a pixel, the more similar the two shingles are.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -404,7 +404,8 @@ The resulting self-dissimilarity matrix is:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/utilities_vignette_7_0.svg" src="_images/utilities_vignette_7_0.svg" /></div>
+<img alt="_images/utilities_vignette_7_0.png" src="_images/utilities_vignette_7_0.png" />
+</div>
 </div>
 </section>
 <section id="find_initial_repeats">
@@ -415,7 +416,7 @@ The resulting self-dissimilarity matrix is:
 <p>The inputs for the function are: - <strong>thresh_mat</strong> (np.ndarray): A thresholded matrix from which diagonals are extracted. - <strong>bandwidth_vec</strong> (np.ndarray): A vector of lengths of diagonals to be found. - <strong>thresh_bw</strong> (int): The smallest allowed diagonal length.</p>
 <p>The output for the function is: - <strong>all_lst</strong> (np.ndarray): Pairs of repeats that correspond to diagonals in <em>thresh_mat</em>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -460,7 +461,7 @@ The smalled allowed diagonal length is: 0
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -493,7 +494,7 @@ The pairs of repeats are:
 <p>The inputs for the function are: - <strong>thresh_diags</strong> (np.ndarray): A binary matrix where entries equal to 1 signal the existence of a diagonal. - <strong>band_width</strong> (int): The length of encoded diagonals.</p>
 <p>The output for the function is: - <strong>stretch_diag_mat</strong> (np.ndarray): A logical matrix with diagonals of length <em>band_width</em> starting at each entry prescribed in <em>thresh_diag</em>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -525,7 +526,7 @@ The length of the encoded diagonals is: 3
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -558,7 +559,7 @@ The output matrix is:
 <p>The inputs for the function are: - <strong>input_mat</strong> (np.ndarray): Pairs of repeats. The first two columns refer to the first repeat of the pair. The third and fourth columns refer to the second repeat of the pair. The fifth column refers to the repeat lengths. The sixth column contains any previous annotations, which will be removed. - <strong>song_length</strong> (int): The number of shingles in the song.</p>
 <p>The output for the function is: - <strong>anno_list</strong> (np.ndarray): Pairs of repeats with annotations marked.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -590,7 +591,7 @@ The number of shingles is: 19
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -625,7 +626,7 @@ The array of repeats with annotations is:
 <li><p><strong>song_pattern</strong> (np.ndarray): Rows where each entry represents a time step and the group that the time step is a member of</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -681,7 +682,7 @@ The input matrix is:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -711,7 +712,7 @@ The song pattern is:
 <p>The inputs for the function are: - <strong>pattern_mat</strong> (np.ndarray): A binary matrix with 1’s where repeats begin and 0’s otherwise - <strong>pattern_key</strong> (np.ndarray): The number of feature vectors per audio shingle</p>
 <p>The output for the function is: - <strong>pattern_block</strong> (np.ndarray): A binary matrix representation for <em>pattern_mat</em> with blocks of 1’s equal to the length’s prescribed in <em>pattern_key</em></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -744,7 +745,7 @@ The input pattern key is:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -773,7 +774,7 @@ The reconstructed full block is:
 <p>The input for the function is: - <strong>key_lst</strong> (np.ndarray): Array of lengths in ascending order</p>
 <p>The output for the function is: - <strong>anno_lst_out</strong> (np.ndarray): Array of one possible set of annotation markers for <em>key_lst</em></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -793,7 +794,7 @@ The input array of lengths is:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -823,7 +824,7 @@ The output array is:
 </ul>
 <p>The output for the function is: - <strong>ylabels</strong>(str): Labels for the y-axis of a visualization</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -854,7 +855,7 @@ The array of annotation makers is:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -881,7 +882,7 @@ The output string is:
 <p>The inputs for the function are: - <strong>pattern_mat</strong> (np.ndarray): Binary array with 1’s where repeats start and 0’s otherwise - <strong>pattern_key</strong> (np.ndarray): Array with the lengths of each repeated structure in <em>pattern_mat</em></p>
 <p>The output for the function is: - <strong>info_mat</strong> (np.ndarray): Array with the time steps of when the pairs of repeated structures start and end organized</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -913,7 +914,7 @@ The length of repeated structure is: [1 2 2 3 4]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>

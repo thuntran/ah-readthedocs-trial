@@ -329,10 +329,10 @@ div.rendered_html tbody tr:hover {
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="c1"># utilities imports needed functions</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
 <span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="s1">&#39;__file__&#39;</span><span class="p">))</span>
 <span class="n">relative_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_dir</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">)</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">relative_path</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">mirah</span>
 <span class="kn">from</span> <span class="nn">mirah.utilities</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">mirah.search</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">mirah.transform</span> <span class="kn">import</span> <span class="o">*</span>
@@ -362,10 +362,6 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</section>
-<section id="Creating-the-SDM">
-<h3>Creating the SDM<a class="headerlink" href="#Creating-the-SDM" title="Permalink to this headline">¶</a></h3>
-<p>In just one line, we define the self-dissimiliarity matrix. This function <code class="docutils literal notranslate"><span class="pre">create_sdm</span></code>, uses feature vectors to create an audio shingle for each time step and represents these shingles as vectors by stacking the relevant feature vectors on top of each other. Then, the cosine distance is found between these shingles.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -406,8 +402,13 @@ self_dissim_mat:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/AH_examples_6_1.svg" src="_images/AH_examples_6_1.svg" /></div>
+<img alt="_images/AH_examples_5_1.png" src="_images/AH_examples_5_1.png" />
 </div>
+</div>
+</section>
+<section id="Creating-the-SDM">
+<h3>Creating the SDM<a class="headerlink" href="#Creating-the-SDM" title="Permalink to this headline">¶</a></h3>
+<p>In just one line, we define the self-dissimiliarity matrix. This function <code class="docutils literal notranslate"><span class="pre">create_sdm</span></code>, uses feature vectors to create an audio shingle for each time step and represents these shingles as vectors by stacking the relevant feature vectors on top of each other. Then, the cosine distance is found between these shingles.</p>
 </section>
 </section>
 <section id="Step-1:-Thresholding-the-SDM">
@@ -452,7 +453,8 @@ thresh_dist_mat:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/AH_examples_8_1.svg" src="_images/AH_examples_8_1.svg" /></div>
+<img alt="_images/AH_examples_8_1.png" src="_images/AH_examples_8_1.png" />
+</div>
 </div>
 </section>
 <section id="Step-2:-Find-the-diagonals-present-and-store-all-found-pairs-of-repeats-in-a-list">
@@ -639,31 +641,36 @@ and checked for overlapping repeated combinations. The final product is then res
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/AH_examples_16_0.svg" src="_images/AH_examples_16_0.svg" /></div>
+<img alt="_images/AH_examples_16_0.png" src="_images/AH_examples_16_0.png" />
+</div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/AH_examples_16_1.svg" src="_images/AH_examples_16_1.svg" /></div>
+<img alt="_images/AH_examples_16_1.png" src="_images/AH_examples_16_1.png" />
+</div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/AH_examples_16_2.svg" src="_images/AH_examples_16_2.svg" /></div>
+<img alt="_images/AH_examples_16_2.png" src="_images/AH_examples_16_2.png" />
+</div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/AH_examples_16_3.svg" src="_images/AH_examples_16_3.svg" /></div>
+<img alt="_images/AH_examples_16_3.png" src="_images/AH_examples_16_3.png" />
+</div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/AH_examples_16_4.svg" src="_images/AH_examples_16_4.svg" /></div>
+<img alt="_images/AH_examples_16_4.png" src="_images/AH_examples_16_4.png" />
+</div>
 </div>
 </section>
 </section>

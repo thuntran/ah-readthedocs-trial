@@ -25,6 +25,7 @@ Welcome to mirah's documentation!
    assemble
    search_doc
 
+
 .. toctree::
    :maxdepth: 1
    :caption: Implementation
