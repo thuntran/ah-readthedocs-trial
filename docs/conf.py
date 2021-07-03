@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('../aligned-hierarchies/'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'mirah'
+project = 'repytah'
 copyright = '2021, Katherine M Kinnaird, Eleanor Donaher, Lizette Carpenter, Jordan Moody, Denise Nava, Sasha Yeutseyeva, Chenhui Jia, Marium Tapal, Betty Wang, Thu Tran, Zoie Zhao'
 author = 'Katherine M Kinnaird, Eleanor Donaher, Lizette Carpenter, Jordan Moody, Denise Nava, Sasha Yeutseyeva, Chenhui Jia, Marium Tapal, Betty Wang, Thu Tran, Zoie Zhao'
 
