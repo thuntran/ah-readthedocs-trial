@@ -30,7 +30,7 @@ Welcome to repytah's documentation!
    :maxdepth: 1
    :caption: Implementation
    
-   AH_examples.ipynb
+   example_vignette.ipynb
 
 
 
