@@ -61,21 +61,29 @@ focus mainly on overlapping repeated structures and annotation markers.</p>
 <p>This file contains the following functions:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>remove_overlaps - Removes any pairs of repeats with the same length and</p></li>
-</ul>
-<p>annotation marker where at least one pair of repeats overlap in time</p>
-<ul class="simple">
-<li><p>__create_anno_remove_overlaps - Turns rows of repeats into marked rows with</p></li>
-</ul>
-<p>annotation markers for the start indices and zeroes otherwise. After
+<li><dl class="simple">
+<dt><span class="xref std std-ref">remove_overlaps</span></dt><dd><p>Removes any pairs of repeats with the same length and
+annotation marker where at least one pair of repeats overlap in time</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><span class="xref std std-ref">__create_anno_remove_overlaps</span></dt><dd><p>Turns rows of repeats into marked rows with
+annotation markers for the start indices and zeroes otherwise. After
 removing the annotations that have overlaps, the function creates separate
 arrays for annotations with overlaps and annotations without overlaps.
 Finally, the annotation markers are checked and fixed if necessary.</p>
-<ul class="simple">
-<li><p>__separate_anno_markers - Expands vector of non-overlapping repeats into</p></li>
-</ul>
-<p>a matrix representation. The matrix representation is a visual record of
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><span class="xref std std-ref">__separate_anno_markers</span></dt><dd><p>Expands vector of non-overlapping repeats into
+a matrix representation. The matrix representation is a visual record of
 where all of the repeats in a song start and end.</p>
+</dd>
+</dl>
+</li>
+</ul>
 </div></blockquote>
 <dl class="py function">
 <dt id="transform.__create_anno_remove_overlaps">
